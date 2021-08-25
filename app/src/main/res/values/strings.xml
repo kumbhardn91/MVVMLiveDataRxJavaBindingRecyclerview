@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Exercise Three</string>
+    <string name="todo">TODO</string>
+    <string name="no_data">No data</string>
+</resources>
