@@ -43,5 +43,6 @@ class MainActivity : AppCompatActivity() {
                 showToast(this, getString(R.string.no_data))
             }
         })
+        dataViewModel.getDataFromRepo()
     }
 }

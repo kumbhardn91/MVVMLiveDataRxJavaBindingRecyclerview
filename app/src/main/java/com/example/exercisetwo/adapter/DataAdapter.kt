@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercisetwo.databinding.RowItemBinding
-import com.example.exercisetwo.model.Row
+import com.example.exercisetwo.model.DataRows
 
 
-class DataAdapter(private val dataList: List<Row>) :
+class DataAdapter(private val dataList: List<DataRows>) :
     RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
@@ -25,7 +25,7 @@ class DataAdapter(private val dataList: List<Row>) :
 
     class DataViewHolder(private val itemBinding: RowItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(item: Row) {
+        fun bind(item: DataRows) {
             itemBinding.listDataItem = item
         }
     }
