@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         initialization()
         observeCountryLiveData()
-        updateListData()
+        updateCountryData()
 
     }
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun updateListData() {
+    private fun updateCountryData() {
         countryViewModel.getCountryData()
     }
 }
