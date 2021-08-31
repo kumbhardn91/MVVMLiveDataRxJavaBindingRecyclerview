@@ -6,36 +6,42 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercisetwo.R
-import com.example.exercisetwo.adapter.DataAdapter
+import com.example.exercisetwo.adapter.CountryModelAdapter
 import com.example.exercisetwo.databinding.ActivityMainBinding
 import com.example.exercisetwo.utils.showToast
-import com.example.exercisetwo.viewmodel.DataViewModel
+import com.example.exercisetwo.viewmodel.CountryViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    private lateinit var dataViewModel: DataViewModel
+    private lateinit var countryViewModel: CountryViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dataViewModel = ViewModelProvider(this).get(DataViewModel::class.java)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        manager = LinearLayoutManager(this)
-        observeData()
+        initialization()
+        observeCountryLiveData()
+        updateListData()
 
     }
 
-    private fun observeData() {
+    private fun initialization() {
 
-        dataViewModel.dataResultList.observe(this, {
+        countryViewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        manager = LinearLayoutManager(this)
+    }
+
+    private fun observeCountryLiveData() {
+
+        countryViewModel.countryLiveData.observe(this, {
             if (it != null) {
                 val dataList = it.rows
                 dataList.let {
                     binding.recyclerView.apply {
-                        adapter = DataAdapter(dataList)
+                        adapter = CountryModelAdapter(dataList)
                         layoutManager = manager
                     }
                 }
@@ -43,6 +49,10 @@ class MainActivity : AppCompatActivity() {
                 showToast(this, getString(R.string.no_data))
             }
         })
-        dataViewModel.getDataFromRepo()
+
+    }
+
+    private fun updateListData() {
+        countryViewModel.getCountryData()
     }
 }

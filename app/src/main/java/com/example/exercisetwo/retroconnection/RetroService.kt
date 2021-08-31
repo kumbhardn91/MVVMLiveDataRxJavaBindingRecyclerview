@@ -1,6 +1,6 @@
 package com.example.exercisetwo.retroconnection
 
-import com.example.exercisetwo.model.DataModelClass
+import com.example.exercisetwo.model.CountryModel
 import io.reactivex.Observable
 import retrofit2.http.GET
 
@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface RetroService {
 
     @GET("facts.json")
-    fun callDataApi(): Observable<DataModelClass>
+    fun getCountryInfoApi(): Observable<CountryModel>
 }

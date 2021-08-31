@@ -7,8 +7,8 @@ import com.example.exercisetwo.databinding.RowItemBinding
 import com.example.exercisetwo.model.DataRows
 
 
-class DataAdapter(private val dataList: List<DataRows>) :
-    RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+class CountryModelAdapter(private val dataList: List<DataRows>) :
+    RecyclerView.Adapter<CountryModelAdapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
 

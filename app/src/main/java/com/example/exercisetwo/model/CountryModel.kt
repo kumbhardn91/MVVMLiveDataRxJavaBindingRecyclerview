@@ -1,6 +1,6 @@
 package com.example.exercisetwo.model
 
-data class DataModelClass(
+data class CountryModel(
     val rows: List<DataRows>,
     val title: String
 )
